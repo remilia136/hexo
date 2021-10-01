@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hexo.thlremilia136.me/"/>
-  <updated>2021-09-27T13:48:02.551Z</updated>
+  <updated>2021-10-01T14:56:26.405Z</updated>
   <id>https://hexo.thlremilia136.me/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>正式使用</title>
+    <link href="https://hexo.thlremilia136.me/2021/10/01/%E6%AD%A3%E5%BC%8F%E4%BD%BF%E7%94%A8/"/>
+    <id>https://hexo.thlremilia136.me/2021/10/01/正式使用/</id>
+    <published>2021-10-01T14:36:40.000Z</published>
+    <updated>2021-10-01T14:56:26.405Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;10/1日，解决或跳过n个问题后，该主题终于可以正常使用了(虽然许多功能还未完善）&lt;br&gt;该主题在生成静态网页的时候不完全，尝试了别人的修改版主题，还按照某些教程进行了一些修改，均未成功，最终决定先暂时使用不完整版。&lt;br&gt;另外，我发现，每次出问题，我因为嫌麻烦或对问题不了
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>hello</title>
