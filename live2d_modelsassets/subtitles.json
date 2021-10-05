@@ -226,7 +226,7 @@
   {
     "locale": "zh-chs zh-cht zh-cn",
     "name": "中文",
-    "author": "星空月之夜\n小莫\n今天的风儿好喧嚣",
+    "author": "星空月之夜\n今天的风儿好喧嚣",
     "font": "Microsoft YaHei UI,黑体",
     "subtitles": [
       {
@@ -375,7 +375,7 @@
   },
   {
     "locale": "pt-br",
-    "name": "Português Brasileiro",
+    "name": "Português Brasileiro (Brazilian Portuguese)",
     "author": "Raul",
     "font": "Heveltica,Arial",
     "subtitles": [
@@ -520,81 +520,6 @@
       }, {
         "name": "78",
         "text": "Möchten Du ein Bad nehmen? Willst du was essen? Oder...... uh, umm...... spielen?"
-      }
-    ]
-  },
-  {
-    "locale": "fr-fr",
-    "name": "Français",
-    "author": "Lord Lionnel",
-    "font": "Trebuchet MS,Segoe UI",
-    "subtitles": [
-      {
-        "name": "1",
-        "text": "Y avait-il quelque chose d'intéressant?"
-      }, {
-        "name": "6",
-        "text": "Ah! Vous ne pouvez pas faire ça, vous ne pouvez pas faire ça! Ne touchez pas le corps d'une jeune fille!"
-      }, {
-        "name": "8",
-        "text": "Eh! J'ai été surprise. Bon sang."
-      }, {
-        "name": "9",
-        "text": "Attendez un instant! Ça chatouille!"
-      }, {
-        "name": "16",
-        "text": "Bonjour! Faisons de notre mieux aujourd'hui aussi!"
-      }, {
-        "name": "17",
-        "text": "Bonjour! Profitons de cette journée au maximum!"
-      }, {
-        "name": "18",
-        "text": "C'est l'heure du déjeuner ... Je veux un délicieux repas!"
-      }, {
-        "name": "19",
-        "text": "Il est déjà midi. Donc, je vais faire la sieste. Eh? Je ne peux pas?"
-      }, {
-        "name": "20",
-        "text": "Bon après-midi? Bonsoir? Hmm, parce que c'est un temps léger, bonjour!"
-      }, {
-        "name": "21",
-        "text": "Bien joué! Merci pour aujourd'hui!"
-      }, {
-        "name": "22",
-        "text": "C'est juste la tombée de la nuit ...... Le meilleur reste encore à venir!"
-      }, {
-        "name": "23",
-        "text": "Bonsoir. Je me demande s'il y a quelque chose d'intéressant à la télé?"
-      }, {
-        "name": "24",
-        "text": "Bonsoir. À un moment comme celui-ci, vous êtes bien en forme."
-      }, {
-        "name": "25",
-        "text": "*Yaw ...... n*, j'ai sommeil."
-      }, {
-        "name": "32",
-        "text": "*Purr, Purr* Je ne travaille pas, c'est ça la JUSTICE!"
-      }, {
-        "name": "33",
-        "text": "Oh? Il y a beaucoup de souvenirs dans ces vêtements. Ouais, ils ne moisissent pas."
-      }, {
-        "name": "42",
-        "text": "Bonne année! Le spectacle de l'année se passe le Jour de l'an! Ah, il est temps de montrer mon premier spectacle!"
-      }, {
-        "name": "43",
-        "text": "Joyeux Noël! Il y a aussi des festins et des cadeaux aujourd'hui!"
-      }, {
-        "name": "48",
-        "text": "Des bonbons ou un sort! Je me conduirai mal si vous ne me donnez pas de bonbons!"
-      }, {
-        "name": "55",
-        "text": "Hey! Mangeons du pudding ensemble!"
-      }, {
-        "name": "65",
-        "text": "Je veux manger du pudding!"
-      }, {
-        "name": "78",
-        "text": "Voulez-vous prendre un bain? Mangez? Ou ...... euh ...... heu ...... Jouer à des jeux?"
       }
     ]
   }
