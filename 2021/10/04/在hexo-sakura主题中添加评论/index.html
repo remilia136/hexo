@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">在hexo sakura主题中添加评论 | Hello</title>
+  <title itemprop="name">在hexo sakura主题中添加gitalk评论 | Hello</title>
   
     <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/remilia136/picture@1.02/friedeggswithtomatoes.ico">
   
@@ -395,7 +395,7 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
           <header class="entry-header">
-            <h1 class="entry-title">在hexo sakura主题中添加评论</h1>
+            <h1 class="entry-title">在hexo sakura主题中添加gitalk评论</h1>
             <p class="entry-census">remilia136&nbsp;·&nbsp;2021-10-4&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
 
             <hr>
@@ -403,6 +403,14 @@
         
         <div class="entry-content">
           <p> 一个个贴图片太麻烦了，直接放网址吧<br><a href="https://blog.csdn.net/cungudafa/article/details/109065080" target="_blank" rel="noopener">https://blog.csdn.net/cungudafa/article/details/109065080</a></p>
+<p>后来发现这个主题自带的valine不是不能用，只是我没设置</p>
+<pre><code class="yml"># Valine
+valine: true
+v_appId: bulabula
+v_appKey: bulabula
+</code></pre>
+<p>去Leancloud注册一个账号，再创建一个应用，点击应用的设置–应用key 把appID 和app key复制过来就行了<br>不过这东西貌似并不能显示头像，gitalk可以，所以gitalk先留着。</p>
+<p>不过gitalk有时候加载奇慢）</p>
 
         </div>
         <!-- .entry-content -->
