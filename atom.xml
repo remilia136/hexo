@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hexo.thlremilia136.me/"/>
-  <updated>2021-10-04T13:57:08.312Z</updated>
+  <updated>2021-10-05T13:31:10.199Z</updated>
   <id>https://hexo.thlremilia136.me/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>sakura主题中添加live2d看板娘</title>
+    <link href="https://hexo.thlremilia136.me/2021/10/05/sakura%E4%B8%BB%E9%A2%98%E4%B8%AD%E6%B7%BB%E5%8A%A0live2d%E7%9C%8B%E6%9D%BF%E5%A8%98/"/>
+    <id>https://hexo.thlremilia136.me/2021/10/05/sakura主题中添加live2d看板娘/</id>
+    <published>2021-10-05T12:54:22.000Z</published>
+    <updated>2021-10-05T13:31:10.199Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;拿wallpaper里Neptune Live2d壁纸的live2d弄了个看板娘&lt;br&gt;方法如下&lt;br&gt;&lt;a href=&quot;https://blog.csdn.net/cungudafa/article/details/104282643&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://hexo.thlremilia136.me/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>在hexo sakura主题中添加gitalk评论</title>
     <link href="https://hexo.thlremilia136.me/2021/10/04/%E5%9C%A8hexo-sakura%E4%B8%BB%E9%A2%98%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA/"/>
     <id>https://hexo.thlremilia136.me/2021/10/04/在hexo-sakura主题中添加评论/</id>
     <published>2021-10-04T12:30:58.000Z</published>
-    <updated>2021-10-04T13:57:08.312Z</updated>
+    <updated>2021-10-05T13:31:31.162Z</updated>
     
     <summary type="html">
     
