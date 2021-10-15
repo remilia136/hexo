@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Hello</title>
+  <title itemprop="name">列表&amp;key | Hello</title>
   
     <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/remilia136/picture@1.02/friedeggswithtomatoes.ico">
   
@@ -383,233 +383,300 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 0px;"></div>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
 <div id="content" class="site-content">
-  
-  <div class="top-feature-row">
-  <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
-  <i class="fa fa-anchor" aria-hidden="true">
-  </i>
-  START:DASH!!</h1>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="/theme-sakura/" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/startdash/sakura.md.png">
-        </div>
-        <div class="info">
-          <h3>Sakura</h3>
-          <p>本站 hexo 主题</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="http://space.bilibili.com/271849279" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/startdash/bilibili.jpg">
-        </div>
-        <div class="info">
-          <h3>Bilibili</h3>
-          <p>主题原开发者的b站视频</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="/" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/startdash/wangshiwu.jpg">
-        </div>
-        <div class="info">
-          <h3>主题原开发者的万事屋</h3>
-          <p>技术服务</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-</div>
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
-      <i class="fa fa-envira" aria-hidden="true"></i>
-      Discovery</h1>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+          <header class="entry-header">
+            <h1 class="entry-title">列表&key</h1>
+            <p class="entry-census">remilia136&nbsp;·&nbsp;2021-10-15&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
+
+            <hr>
+          </header>
+        
+        <div class="entry-content">
+          <h3 id="基础列表组件"><a href="#基础列表组件" class="headerlink" title="基础列表组件"></a>基础列表组件</h3><p>可以利用map()方法一次性加入多个组件</p>
+<pre><code class="react">function NumberList(props) {
+  const numbers = props.numbers;
+  const listItems = numbers.map((number) =&gt;    &lt;li&gt;{number}&lt;/li&gt;  );  return (
+    &lt;ul&gt;{listItems}&lt;/ul&gt;  );
+}
+
+const numbers = [1, 2, 3, 4, 5];
+ReactDOM.render(
+  &lt;NumberList numbers={numbers} /&gt;,  document.getElementById(&#39;root&#39;)
+);
+</code></pre>
+<h2 id="key"><a href="#key" class="headerlink" title="key"></a>key</h2><p>key 帮助 React 识别哪些元素改变了，比如被添加或删除。因此你应当给数组中的每一个元素赋予一个确定的标识。</p>
+<pre><code class="react">const numbers = [1, 2, 3, 4, 5];
+const listItems = numbers.map((number) =&gt;
+  &lt;li key={number.toString()}&gt;    {number}
+  &lt;/li&gt;
+);
+</code></pre>
+<p>一个元素的 key 最好是这个元素在列表中拥有的一个独一无二的字符串。通常，我们使用数据中的 id 来作为元素的 key：</p>
+<pre><code class="react">const todoItems = todos.map((todo) =&gt;
+  &lt;li key={todo.id}&gt;    {todo.text}
+  &lt;/li&gt;
+);
+</code></pre>
+<p>当元素没有确定 id 的时候，万不得已你可以使用元素索引 index 作为 key：</p>
+<pre><code class="react">const todoItems = todos.map((todo, index) =&gt;
+  // Only do this if items have no stable IDs  &lt;li key={index}&gt;    {todo.text}
+  &lt;/li&gt;
+);
+</code></pre>
+<h3 id="为什么key是必须的"><a href="#为什么key是必须的" class="headerlink" title="为什么key是必须的"></a>为什么key是必须的</h3><p>在默认条件下，当递归 DOM 节点的子元素时，React 会同时遍历两个子元素的列表；当产生差异时，生成一个 mutation。</p>
+<p>在子元素列表末尾新增元素时，更变开销比较小。比如：</p>
+<pre><code class="react">&lt;ul&gt;
+  &lt;li&gt;first&lt;/li&gt;
+  &lt;li&gt;second&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;first&lt;/li&gt;
+  &lt;li&gt;second&lt;/li&gt;
+  &lt;li&gt;third&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>React 会先匹配两个 <code>&lt;li&gt;first&lt;/li&gt;</code> 对应的树，然后匹配第二个元素 <code>&lt;li&gt;second&lt;/li&gt;</code> 对应的树，最后插入第三个元素的 <code>&lt;li&gt;third&lt;/li&gt;</code> 树。</p>
+<p>如果简单实现的话，那么在列表头部插入会很影响性能，那么更变开销会比较大。比如：</p>
+<pre><code class="react">&lt;ul&gt;
+  &lt;li&gt;Duke&lt;/li&gt;
+  &lt;li&gt;Villanova&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Connecticut&lt;/li&gt;
+  &lt;li&gt;Duke&lt;/li&gt;
+  &lt;li&gt;Villanova&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>React 会针对每个子元素 mutate 而不是保持相同的 <code>&lt;li&gt;Duke&lt;/li&gt;</code> 和 <code>&lt;li&gt;Villanova&lt;/li&gt;</code> 子树完成。这种情况下的低效可能会带来性能问题</p>
+<p>为了解决以上问题，React 支持 <code>key</code> 属性。当子元素拥有 key 时，React 使用 key 来匹配原有树上的子元素以及最新树上的子元素。以下例子在新增 <code>key</code> 之后使得之前的低效转换变得高效：</p>
+<pre><code class="react">&lt;ul&gt;
+  &lt;li key=&quot;2015&quot;&gt;Duke&lt;/li&gt;
+  &lt;li key=&quot;2016&quot;&gt;Villanova&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+  &lt;li key=&quot;2014&quot;&gt;Connecticut&lt;/li&gt;
+  &lt;li key=&quot;2015&quot;&gt;Duke&lt;/li&gt;
+  &lt;li key=&quot;2016&quot;&gt;Villanova&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>现在 React 知道只有带着 <code>&#39;2014&#39;</code> key 的元素是新元素，带着 <code>&#39;2015&#39;</code> 以及 <code>&#39;2016&#39;</code> key 的元素仅仅移动了。</p>
+<h3 id="用-key-提取组件"><a href="#用-key-提取组件" class="headerlink" title="用 key 提取组件"></a>用 key 提取组件</h3><p>元素的 key 只有放在就近的数组上下文中才有意义。</p>
+<p>比方说，如果你<a href="https://react.docschina.org/docs/components-and-props.html#extracting-components" target="_blank" rel="noopener">提取</a>出一个 <code>ListItem</code> 组件，你应该把 key 保留在数组中的这个 <code>&lt;ListItem /&gt;</code> 元素上，而不是放在 <code>ListItem</code> 组件中的 <code>&lt;li&gt;</code> 元素上。</p>
+<p>在哪里使用了map()方法，就在哪里添加key</p>
+<p><strong>例子：不正确的使用 key 的方式</strong></p>
+<pre><code class="react">function ListItem(props) {
+  const value = props.value;
+  return (
+    // 错误！你不需要在这里指定 key：    &lt;li key={value.toString()}&gt;      {value}
+    &lt;/li&gt;
+  );
+}
+
+function NumberList(props) {
+  const numbers = props.numbers;
+  const listItems = numbers.map((number) =&gt;
+    // 错误！元素的 key 应该在这里指定：    &lt;ListItem value={number} /&gt;  );
+  return (
+    &lt;ul&gt;
+      {listItems}
+    &lt;/ul&gt;
+  );
+}
+
+const numbers = [1, 2, 3, 4, 5];
+ReactDOM.render(
+  &lt;NumberList numbers={numbers} /&gt;,
+  document.getElementById(&#39;root&#39;)
+);
+</code></pre>
+<p><strong>例子：正确的使用 key 的方式</strong></p>
+<pre><code class="react">function ListItem(props) {
+  // 正确！这里不需要指定 key：  return &lt;li&gt;{props.value}&lt;/li&gt;;}
+
+function NumberList(props) {
+  const numbers = props.numbers;
+  const listItems = numbers.map((number) =&gt;
+    // 正确！key 应该在数组的上下文中被指定    &lt;ListItem key={number.toString()}              value={number} /&gt;
+  );
+  return (
+    &lt;ul&gt;
+      {listItems}
+    &lt;/ul&gt;
+  );
+}
+
+const numbers = [1, 2, 3, 4, 5];
+ReactDOM.render(
+  &lt;NumberList numbers={numbers} /&gt;,
+  document.getElementById(&#39;root&#39;)
+);
+</code></pre>
+<h3 id="key-只是在兄弟节点之间必须唯一"><a href="#key-只是在兄弟节点之间必须唯一" class="headerlink" title="key 只是在兄弟节点之间必须唯一"></a>key 只是在兄弟节点之间必须唯一</h3><p>数组元素中使用的 key 在其兄弟节点之间应该是独一无二的。然而，它们不需要是全局唯一的。当我们生成两个不同的数组时，我们可以使用相同的 key 值：</p>
+<pre><code class="react">function Blog(props) {
+  const sidebar = (    &lt;ul&gt;
+      {props.posts.map((post) =&gt;
+        &lt;li key={post.id}&gt;          {post.title}
+        &lt;/li&gt;
+      )}
+    &lt;/ul&gt;
+  );
+  const content = props.posts.map((post) =&gt;    &lt;div key={post.id}&gt;      &lt;h3&gt;{post.title}&lt;/h3&gt;
+      &lt;p&gt;{post.content}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+  return (
+    &lt;div&gt;
+      {sidebar}      &lt;hr /&gt;
+      {content}    &lt;/div&gt;
+  );
+}
+
+const posts = [
+  {id: 1, title: &#39;Hello World&#39;, content: &#39;Welcome to learning React!&#39;},
+  {id: 2, title: &#39;Installation&#39;, content: &#39;You can install React from npm.&#39;}
+];
+ReactDOM.render(
+  &lt;Blog posts={posts} /&gt;,
+  document.getElementById(&#39;root&#39;)
+);
+</code></pre>
+<p>key 会传递信息给 React ，但不会传递给你的组件。如果你的组件中需要使用 <code>key</code> 属性的值，请用其他属性名显式传递这个值：</p>
+<pre><code class="react">const content = posts.map((post) =&gt;
+  &lt;Post
+    key={post.id}    id={post.id}    title={post.title} /&gt;
+);
+</code></pre>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="null"></li>
+                <li class="wechat-code"><img src="null"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2021/10/15/2021-10-15-条件渲染/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                条件渲染</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "M7dYPpcjtfvqC9I8riEpoW4i-gzGzoHsz",
+        appKey: "eUScJlIvMLXPG9LMrqt4R69J",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-  <div class="post-thumb">
-    <a href="/2021/09/27/hello/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-9-27 21:09</div>
-      <a href="/2021/09/27/hello/" class="post-title">
-        <h3>hello</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/09/27/hello/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="https://thlremilia136.me" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/remilia136/picture@1.07/btdf120x120.jpg" itemprop="image" alt="remilia136" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://thlremilia136.me" itemprop="url" rel="author">remilia136</a>
+            </h3>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/09/27/nihao/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-9-27 21:09</div>
-      <a href="/2021/09/27/nihao/" class="post-title">
-        <h3>nihao</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/09/27/nihao/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/09/27/hello-world/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-9-27 21:09</div>
-      <a href="/2021/09/27/hello-world/" class="post-title">
-        <h3>Hello World</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/09/27/hello-world/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2018/12/12/Hexo-Theme-Sakura/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://static.2heng.xin/wp-content/uploads//2019/02/wallhaven-672007-1-1024x576.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2018-12-12 22:12</div>
-      <a href="/2018/12/12/Hexo-Theme-Sakura/" class="post-title">
-        <h3>Hexo-Theme-Sakura</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/web/">web<em>·</em></a>
-          
-            <a href="/tags/悦读/">悦读<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>hexo-sakura主题使用教程</p>
-        <div class="post-bottom">
-          <a href="/2018/12/12/Hexo-Theme-Sakura/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-
-
-    </main>
-      <!-- 首页默认取最最新文章集 -->
-    <!-- 
-      <nav class="navigator">
-        
-        <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-back"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-      </nav>
-     -->
-  </div>
-  
+        <hr>
+        <p><i class="iconfont icon-write"></i>remilia136</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<div id="gitalk-container" class="comment"></div> 
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="/js/md5.min.js"></script>
+<script type="text/javascript">
+	var gitalk = new Gitalk({
+  	clientID: 'd0f5c658f8c2b498bd55',
+  	clientSecret: '3df498cbd6769ffa91ac044d16d530905f7ff002',
+  	repo: 'comment.github.io',
+  	owner: 'remilia136',
+	admin: ['remilia136'],
+	distractionFreeMode: 'true',
+    id: md5(location.pathname)
+})
+gitalk.render('gitalk-container') 
+</script>
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<div id="gitalk-container" class="comment"></div> 
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="/js/md5.min.js"></script>
+<script type="text/javascript">
+	var gitalk = new Gitalk({
+  	clientID: 'd0f5c658f8c2b498bd55',
+  	clientSecret: '3df498cbd6769ffa91ac044d16d530905f7ff002',
+  	repo: 'comment.github.io',
+  	owner: 'remilia136',
+	admin: ['remilia136'],
+	distractionFreeMode: 'true',
+    id: md5(location.pathname)
+})
+gitalk.render('gitalk-container') 
+</script>
+
+
 
     </div>    
     <div class="ins-search">
